@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="form" onsubmit="submitProduct()">
+        <input type="text" placeholder="Product name" id="product">
+        <input type="text" placeholder="Category" id="category">
+        <input type="text" placeholder="Image url" id="image">
+        <input type="text" placeholder="Price" id="price">
+        <select name="" id="select">
+            <option value="none">Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <select name="" id="sold">
+            <option value="none">Sold</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <input type="submit">
+    </form>
+    
+    
+</body>
+</html>
+
+<script>
+   
+
+   function Products(product,cate,image,price,select,sold){
+            this.product = product;
+            this.cate = cate;
+            this.image = image;
+            this.price = price;
+            this.select = select;
+            this.sold = sold;
+   }
+
+let arr = [];
+    function submitProduct(){
+        event.preventDefault();
+        let form = document.getElementById("form");
+        let product = form.product.value;
+        let cate = form.category.value;
+        let image = form.image.value;
+        let price = form.price.value;
+        let select = form.select.value;
+        let sold = form.sold.value;
+        
+
+      let products= new Products(product,cate,image,price,select,sold);
+      arr.push(products)
+     localStorage.setItem("Products",JSON.stringify(arr));
+    }
+     
+
+</script>
